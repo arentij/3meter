@@ -1,3 +1,6 @@
+.idea/
+.git/
+
 # Build and Release Folders
 bin/
 bin-debug/
