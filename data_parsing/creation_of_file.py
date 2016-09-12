@@ -2,7 +2,7 @@
 dt = 30  # interval in seconds of recording
 f = 256  # frequency of recordings
 n = 47  # number of channels
-m = 2   # number of times if writing dt*f*n
+m = 3   # number of times if writing dt*f*n
 start = 0
 t = [start + i/f for i in range(dt*f*m)]
 
