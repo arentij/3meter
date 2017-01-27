@@ -34,7 +34,6 @@ def loading_mat():
     return p35
 
 
-p35 = loading_mat()
 
 tp = dict()
 tp['p05'] = [61245, 61910, 62500, 63100, 63700, 64200, 64700, 65300]
@@ -80,7 +79,10 @@ def creating_pressure(f):
     # of pressure for first time period from tp(f)
     return p
 
+p35 = loading_mat()
+
 p = creating_pressure(p35)
+
 s0 = p[0]
 s20 = p[1]
 s40 = p[2]
@@ -137,11 +139,21 @@ plt.savefig('r2b270.png')
 for i2 in range(7):
     plt.plot(11)
     plt.magnitude_spectrum(p[i2], Fs=Fs, scale='dB')
-    plt.title('Rate=2')
+
+    if i2 == 7 or i2 == 0:
+        B = 0
+    elif i2 == 6:
+        B = 270
+    else:
+        B = 10*2**i2
+
+
+    plt.title('Rate = 35,  B = ' + str(B))
     plt.xlim(x_lim)
     plt.ylim(y_lim)
-
-    plt.savefig('r35' + str(i2) + '.png')
+    plt.show()
+    input()
+    # plt.savefig('r05' + str(i2) + '.png')
     plt.close()
 
 #
@@ -151,4 +163,4 @@ for i2 in range(7):
 # plt.subplot(3, 2, 6)
 # plt.phase_spectrum(s, Fs=Fs)
 
-# plt.show()
+plt.show()
